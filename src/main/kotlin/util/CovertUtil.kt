@@ -39,7 +39,7 @@ class CovertUtil {
         private fun handleObject(obj: Map<String, Any>): List<DartBaseModel> {
             val r = mutableListOf<DartBaseModel>()
             obj.forEach { (t, u) ->
-                println("-->${t}  ${u.javaClass}")
+                println("-->${t}  ${u::class.java}")
                 r.add(object : DartBaseModel {
                     override fun getName(): String {
                         return t
@@ -47,10 +47,10 @@ class CovertUtil {
 
                     override fun getType(): DartType {
 
-                        return when (u.javaClass) {
+                        return when (u::class.java) {
                             Boolean::class.java -> DartType.Bool
                             String::class.java -> DartType.String
-                            Int::class.java -> DartType.Int
+                            Integer::class.java -> DartType.Int
                             Double::class.java -> DartType.Double
                             JSONObject::class.java -> DartType.Object
                             else -> DartType.Dynamic

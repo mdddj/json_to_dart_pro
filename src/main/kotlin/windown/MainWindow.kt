@@ -15,6 +15,12 @@ class MainWindow : JFrame("Json to dart") {
         defaultCloseOperation = EXIT_ON_CLOSE
         add(mainLayout)
     }
+
+    companion object {
+        fun show() {
+            MainWindow().isVisible = true
+        }
+    }
 }
 
 

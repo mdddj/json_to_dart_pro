@@ -5,6 +5,6 @@ object Main  {
 
     @JvmStatic
     fun main(args: Array<String>){
-         MainWindow().isVisible = true
+         MainWindow.show()
     }
 }

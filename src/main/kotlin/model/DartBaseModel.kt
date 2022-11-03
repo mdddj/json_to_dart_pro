@@ -18,7 +18,7 @@ enum class DartType {
 interface DartBaseModel {
 
     /**
-     * 数据名字
+     * 属性名字
      */
     fun getName(): String
 

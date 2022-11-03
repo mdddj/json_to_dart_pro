@@ -54,4 +54,14 @@ class MyCustomModel(private val models: List<DartBaseModel>) : AbstractTableMode
         }
     }
 
+    override fun getColumnName(column: Int): String {
+       return when(column){
+            0 -> "属性"
+            1 -> "类型"
+            2 -> "Required"
+            3 -> "子节点"
+            else -> "未知"
+        }
+    }
+
 }
