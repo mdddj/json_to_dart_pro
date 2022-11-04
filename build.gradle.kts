@@ -22,11 +22,10 @@ dependencies {
     implementation("org.hildan.krossbow:krossbow-stomp-core:4.4.0")
     implementation("org.hildan.krossbow:krossbow-websocket-ktor:4.4.0")
     implementation("org.hildan.krossbow:krossbow-websocket-okhttp:4.4.0")
-    implementation("org.hildan.krossbow:krossbow-websocket-spring:4.4.0")
     implementation("org.hildan.krossbow:krossbow-websocket-sockjs:4.4.0")
-    implementation("org.glassfish.tyrus.bundles:tyrus-standalone-client:2.1.1")
-
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.hildan.krossbow:krossbow-websocket-builtin:4.4.0")
+
     implementation("javax.websocket:javax.websocket-api:1.1")
     implementation("org.java-websocket:Java-WebSocket:1.5.3")
 

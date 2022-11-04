@@ -9,7 +9,10 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants
 import org.fife.ui.rtextarea.RTextScrollPane
 import org.hildan.krossbow.stomp.StompClient
-import org.hildan.krossbow.websocket.sockjs.SockJSClient
+import org.hildan.krossbow.stomp.StompConnectionException
+import org.hildan.krossbow.stomp.subscribeText
+import org.hildan.krossbow.websocket.WebSocketClient
+import org.hildan.krossbow.websocket.builtin.builtIn
 import util.CovertUtil
 import util.HandleModels
 import java.awt.BorderLayout
@@ -61,9 +64,21 @@ class JSONViewLayout(private val handleModels: HandleModels) : Panel(BorderLayou
 
         ///
 
-        val stompClient = StompClient(SockJSClient())
+
         GlobalScope.launch {
-           val session = stompClient.connect("http://192.168.199.78/idea-chat")
+            val stompClient = StompClient(WebSocketClient.builtIn())
+            try{
+                val session = stompClient.connect("ws://192.168.199.78/idea-chat?token=fsdfsdfs")
+                val subscribeText = session.subscribeText("/room/闲聊吹水")
+                launch {
+                    subscribeText.collect {msg ->
+                        println("收到消息:$msg")
+
+                    }
+                }
+            }catch (e: StompConnectionException) {
+                println("连接出现异常了:$e  ")
+            }
 
         }
 

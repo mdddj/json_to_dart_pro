@@ -1,10 +1,10 @@
-import windown.MainWindow
+import windown.ChatWindow
 
 
 object Main  {
 
     @JvmStatic
     fun main(args: Array<String>){
-         MainWindow.show()
+         ChatWindow.show()
     }
 }
